@@ -10,7 +10,7 @@ export const AboutPage: React.FC = () => {
     {
       label: 'GitHub',
       description: 'Source code & repository',
-      href: 'https://github.com',
+      href: 'https://github.com/Rich1997/SuspenseLibrary',
       icon: GitHub,
     },
   ];
@@ -25,12 +25,12 @@ export const AboutPage: React.FC = () => {
       {/* Section 1 */}
       <section className="space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
-          A fan-made catalogue for Sunday Suspense
+          A fan-made catalog for Sunday Suspense
         </h2>
 
         <div className="space-y-3.5 text-sm sm:text-base text-muted-foreground leading-relaxed">
           <p>
-            Suspense Library is a fan made catalogue that aims to collect all episodes of the show
+            Suspense Library is a fan made catalog that aims to collect all episodes of the show
             Sunday Suspense that are uploaded to YouTube.
           </p>
 
@@ -94,7 +94,7 @@ export const AboutPage: React.FC = () => {
                 There are no advertisements, paid features, sponsorships or other forms of
                 monetization. The project is maintained as a personal contribution by a fan who
                 simply wanted a better way to explore and keep track of the show&apos;s extensive
-                catalogue.
+                catalog.
               </p>
               <p>
                 The project also does not use advertising or tracking technology to build user
@@ -114,7 +114,7 @@ export const AboutPage: React.FC = () => {
                 </strong>
               </p>
               <p>
-                The website only catalogues information about the episodes and provides links to
+                The website only catalogs information about the episodes and provides links to
                 the corresponding official content. When you choose to listen to or watch an
                 episode, you are taken to the official Mirchi Bangla YouTube channel.
               </p>
@@ -189,7 +189,7 @@ export const AboutPage: React.FC = () => {
           </p>
 
           <p className="pt-2 font-semibold text-foreground">
-            Thank you for listening. And most importantly, thank you to everyone who has made
+            Thank you to the incredible team at Radio Mirchi Bangla and to everyone who made
             these stories possible.
           </p>
         </div>

@@ -1,21 +1,30 @@
-# React + TypeScript + Vite + shadcn/ui
+<div align="center">
+  <img src="src/assets/logo.png" alt="Suspense Library" width="260" />
+  <p>Open-source Sunday Suspense catalog</p>
+</div>
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+## About
 
-## Adding components
+Suspense Library is a fan made catalogue that aims to collect all episodes of the show Sunday Suspense that are uploaded to YouTube.
 
-To add components to your app, run the following command:
+Project was created to make the extensive collection of Sunday Suspense episodes easier to discover, track, search and revisit.
 
-```bash
-npx shadcn@latest add button
-```
+## Disclaimer
 
-This will place the ui components in the `src/components` directory.
+This is an independent, fan-created project and is not affiliated with, endorsed by, sponsored by, or operated by Mirchi, Mirchi Bangla, or Sunday Suspense.
 
-## Using components
+### Open source & non-commercial
 
-To use the components in your app, import them as follows:
+This project is open source and completely non-commercial.
 
-```tsx
-import { Button } from "@/components/ui/button"
-```
+There are no advertisements, paid features, sponsorships or other forms of monetization. The project is maintained as a personal contribution by a fan who simply wanted a better way to explore and keep track of the show's extensive catalogue.
+
+The project also does not use advertising or tracking technology to build user profiles or mine user data.
+
+### We don't host the episodes
+
+The audio and video content is not hosted on this website.
+
+## Other Information
+
+If you are a rights holder or representative of Mirchi and have any concerns about the information, artwork, links or other material displayed here, please get in touch. I will be happy to discuss the project and make appropriate changes where necessary.
