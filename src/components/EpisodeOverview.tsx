@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Hash, ChevronUp } from 'lucide-react';
+import { Hash, ChevronUp, Eye, ThumbsUp, Calendar } from 'lucide-react';
 import type { VideoItem } from '@/types/playlist';
 import { CustomBadge } from './CustomBadge';
+import { formatFullNumber } from '@/lib/utils';
 
 interface EpisodeOverviewProps {
   video: VideoItem;
@@ -11,6 +12,10 @@ interface EpisodeOverviewProps {
 export const EpisodeOverview: React.FC<EpisodeOverviewProps> = ({ video }) => {
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    setIsExpanded(false);
+  }, [video.videoId]);
 
   const publishedDate = video.publishedAt
     ? new Date(video.publishedAt).toLocaleDateString('en-US', {
@@ -34,12 +39,30 @@ export const EpisodeOverview: React.FC<EpisodeOverviewProps> = ({ video }) => {
       className={`group rounded-md bg-muted/60 p-4 transition-all duration-200 ${!isExpanded ? 'cursor-pointer hover:bg-muted/90' : ''
         }`}
     >
-      <div className="flex flex-wrap items-center justify-start gap-2.5 text-xs font-medium text-foreground mb-3 pb-2 border-b border-border/30">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2.5 text-xs font-medium text-foreground mb-3 pb-2 border-b border-border/30">
+        <div className="flex items-center gap-3.5 flex-wrap">
+          {video.viewCount !== undefined && video.viewCount > 0 && (
+            <CustomBadge
+              className="font-semibold text-foreground/90"
+              value={`${formatFullNumber(video.viewCount)} views`}
+              Icon={Eye}
+            />
+          )}
+
+          {video.likeCount !== undefined && video.likeCount > 0 && (
+            <CustomBadge
+              className="font-semibold text-foreground/90"
+              value={`${formatFullNumber(video.likeCount)} likes`}
+              Icon={ThumbsUp}
+            />
+          )}
+
           {publishedDate && (
-            <span className="font-semibold text-foreground/90 shrink-0 whitespace-nowrap">
-              {publishedDate}
-            </span>
+            <CustomBadge
+              className="font-semibold text-foreground/90"
+              value={publishedDate}
+              Icon={Calendar}
+            />
           )}
         </div>
 

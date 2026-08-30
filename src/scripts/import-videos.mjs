@@ -7,13 +7,15 @@ import { readFileSync, writeFileSync, renameSync, mkdirSync, existsSync } from "
 const API_KEY = process.env.YOUTUBE_API_KEY;
 const DATA_FILE = "src/data/playlist.json";
 
-const YOUTUBE_FIELDS = ["title", "description", "thumbnail", "publishedAt"];
+const YOUTUBE_FIELDS = ["title", "description", "thumbnail", "publishedAt", "viewCount", "likeCount"];
 
 const CUSTOM_FIELD_DEFAULTS = {
     authors: [],
     series: [],
     originalDate: "",
     externalLinks: [],
+    viewCount: 0,
+    likeCount: 0,
 };
 
 if (!API_KEY) {
@@ -92,7 +94,7 @@ async function fetchVideoDetails(videoIds) {
     for (let i = 0; i < videoIds.length; i += BATCH_SIZE) {
         const batch = videoIds.slice(i, i + BATCH_SIZE);
         const url = new URL("https://www.googleapis.com/youtube/v3/videos");
-        url.searchParams.set("part", "snippet");
+        url.searchParams.set("part", "snippet,statistics");
         url.searchParams.set("id", batch.join(","));
         url.searchParams.set("key", API_KEY);
 
@@ -108,6 +110,8 @@ async function fetchVideoDetails(videoIds) {
                     description: item.snippet.description,
                     thumbnail: item.snippet.thumbnails?.medium?.url ?? item.snippet.thumbnails?.default?.url ?? "",
                     publishedAt: item.snippet.publishedAt,
+                    viewCount: parseInt(item.statistics?.viewCount ?? "0", 10),
+                    likeCount: parseInt(item.statistics?.likeCount ?? "0", 10),
                 });
             }
         }

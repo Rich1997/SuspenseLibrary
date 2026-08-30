@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Calendar, User, Play, Hash, Trash2 } from 'lucide-react';
+import { Calendar, User, Play, Hash, Trash2, Eye } from 'lucide-react';
 import type { VideoItem } from '@/types/playlist';
 import { Button } from '@/components/ui/button';
 import { LibraryActions } from '@/components/LibraryActions';
 import { CustomBadge } from './CustomBadge';
+import { formatFullNumber } from '@/lib/utils';
 
 interface EpisodeCardHorizontalProps {
   video: VideoItem;
@@ -116,12 +117,23 @@ export const EpisodeCardHorizontal: React.FC<EpisodeCardHorizontalProps> = ({
         </div>
 
         <div className="text-[11px] sm:text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-x-3 gap-y-1 pt-1">
-          {publishedDate ? (
-            <span className="flex items-center gap-1">
-              <Calendar className="size-3 shrink-0" />
-              {publishedDate}
-            </span>
-          ) : <div />}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {video.viewCount !== undefined && video.viewCount > 0 && (
+              <>
+                <CustomBadge
+                  value={`${formatFullNumber(video.viewCount)} views`}
+                  Icon={Eye}
+                />
+                {publishedDate && <span className="text-muted-foreground/60">•</span>}
+              </>
+            )}
+            {publishedDate && (
+              <CustomBadge
+                value={publishedDate}
+                Icon={Calendar}
+              />
+            )}
+          </div>
 
           <div className="flex items-center gap-1.5">
             <LibraryActions videoId={video.videoId} title={video.title} variant="compact" />

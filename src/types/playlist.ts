@@ -14,6 +14,8 @@ export interface VideoItem {
   series?: string[];
   originalDate?: string;
   externalLinks?: string[];
+  viewCount?: number;
+  likeCount?: number;
 }
 
 export interface PlaylistData {

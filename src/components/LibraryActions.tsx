@@ -89,7 +89,7 @@ export const LibraryActions: React.FC<LibraryActionsProps> = ({
 
   if (variant === 'compact') {
     return (
-      <div className="relative inline-flex items-center gap-1">
+      <div className="relative inline-flex items-center gap-1 -ml-1">
         <Button
           variant="ghost"
           size="icon-xs"

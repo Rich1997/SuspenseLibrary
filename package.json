@@ -17,7 +17,8 @@
     "populate:authors": "node ./src/scripts/populate-authors.mjs",
     "populate:series": "node ./src/scripts/populate-series.mjs",
     "import:videos": "node ./src/scripts/import-videos.mjs",
-    "remove:videos": "node ./src/scripts/remove-videos.mjs"
+    "remove:videos": "node ./src/scripts/remove-videos.mjs",
+    "update:stats": "node ./src/scripts/update-stats.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

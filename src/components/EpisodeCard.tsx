@@ -1,14 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Calendar, User, Play, Hash } from 'lucide-react';
+import { Calendar, User, Play, Hash, Eye } from 'lucide-react';
 import type { VideoItem } from '@/types/playlist';
 import { LibraryActions } from '@/components/LibraryActions';
 import { CustomBadge } from './CustomBadge';
+import { formatCompactNumber, formatFullNumber } from '@/lib/utils';
 
 interface EpisodeCardProps {
   video: VideoItem;
+  showViewsLabel?: boolean;
 }
 
-export const EpisodeCard: React.FC<EpisodeCardProps> = ({ video }) => {
+export const EpisodeCard: React.FC<EpisodeCardProps> = ({ video, showViewsLabel = true }) => {
   const navigate = useNavigate();
 
   const publishedDate = video.publishedAt
@@ -98,12 +100,23 @@ export const EpisodeCard: React.FC<EpisodeCardProps> = ({ video }) => {
       )}
 
       <div className="pb-2 pt-0 text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-        {publishedDate && (
-          <span className="flex items-center gap-1">
-            <Calendar className="size-3 shrink-0" />
-            {publishedDate}
-          </span>
-        )}
+        <div className="flex items-center gap-1.5 flex-wrap">
+          {video.viewCount !== undefined && video.viewCount > 0 && (
+            <>
+              <CustomBadge
+                value={showViewsLabel ? `${formatCompactNumber(video.viewCount)} views` : formatCompactNumber(video.viewCount)}
+                title={`${formatFullNumber(video.viewCount)} views`}
+                Icon={Eye}
+              />
+            </>
+          )}
+          {publishedDate && (
+            <CustomBadge
+              value={publishedDate}
+              Icon={Calendar}
+            />
+          )}
+        </div>
         <div className="flex items-center justify-between">
           <LibraryActions videoId={video.videoId} title={video.title} variant="compact" />
         </div>

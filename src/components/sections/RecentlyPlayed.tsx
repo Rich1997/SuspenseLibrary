@@ -42,7 +42,7 @@ export const RecentlyPlayed: React.FC<RecentlyPlayedProps> = ({ count = 5 }) => 
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-7.5 sm:gap-6">
         {recentVideos.map((video) => (
-          <EpisodeCard key={video.videoId} video={video} />
+          <EpisodeCard key={video.videoId} video={video} showViewsLabel={false} />
         ))}
       </div>
     </section>

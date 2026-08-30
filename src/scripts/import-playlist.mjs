@@ -6,13 +6,15 @@ const API_KEY = process.env.YOUTUBE_API_KEY;
 const PLAYLIST_ID = process.argv[2];
 const DATA_FILE = "src/data/playlist.json";
 
-const YOUTUBE_FIELDS = ["title", "description", "thumbnail", "publishedAt"];
+const YOUTUBE_FIELDS = ["title", "description", "thumbnail", "publishedAt", "viewCount", "likeCount"];
 
 const CUSTOM_FIELD_DEFAULTS = {
     authors: [],
     series: [],
     originalDate: "",
     externalLinks: [],
+    viewCount: 0,
+    likeCount: 0,
 };
 
 if (!API_KEY) {
@@ -70,7 +72,38 @@ function loadExisting() {
     }
 }
 
-const fresh = await fetchPlaylistItems(PLAYLIST_ID);
+async function fetchVideoStatistics(items) {
+    const BATCH_SIZE = 50;
+    const statsMap = new Map();
+
+    for (let i = 0; i < items.length; i += BATCH_SIZE) {
+        const batch = items.slice(i, i + BATCH_SIZE).map((it) => it.videoId);
+        const url = new URL("https://www.googleapis.com/youtube/v3/videos");
+        url.searchParams.set("part", "statistics");
+        url.searchParams.set("id", batch.join(","));
+        url.searchParams.set("key", API_KEY);
+
+        const res = await fetch(url);
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (data.items) {
+            for (const item of data.items) {
+                statsMap.set(item.id, {
+                    viewCount: parseInt(item.statistics?.viewCount ?? "0", 10),
+                    likeCount: parseInt(item.statistics?.likeCount ?? "0", 10),
+                });
+            }
+        }
+    }
+
+    return items.map((item) => {
+        const stats = statsMap.get(item.videoId) ?? { viewCount: 0, likeCount: 0 };
+        return { ...item, ...stats };
+    });
+}
+
+const rawItems = await fetchPlaylistItems(PLAYLIST_ID);
+const fresh = await fetchVideoStatistics(rawItems);
 const existingMap = loadExisting();
 
 let added = 0;

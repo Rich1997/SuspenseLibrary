@@ -14,6 +14,7 @@ const PAGE_SIZE = 20;
 const CATALOG_SORT_OPTIONS: SortOption<SortOrder>[] = [
   { value: 'newest', label: 'Newest First' },
   { value: 'oldest', label: 'Oldest First' },
+  { value: 'mostViewed', label: 'Most Viewed' },
 ];
 
 const SCOPE_OPTIONS: { value: SearchScope; label: string }[] = [
@@ -33,7 +34,9 @@ export const CatalogPage = () => {
     : 'all';
 
   const sortParam = (searchParams.get('sort') as SortOrder) || 'newest';
-  const sort: SortOrder = sortParam === 'oldest' ? 'oldest' : 'newest';
+  const sort: SortOrder = ['newest', 'oldest', 'mostViewed'].includes(sortParam)
+    ? sortParam
+    : 'newest';
 
   const pageParam = parseInt(searchParams.get('page') || '1', 10);
   const currentPage = isNaN(pageParam) || pageParam < 1 ? 1 : pageParam;
@@ -122,7 +125,7 @@ export const CatalogPage = () => {
               value={sort}
               onChange={handleSortChange}
               ariaLabel="Sort episodes"
-              dropdownLabel="Sort by Release Date"
+              dropdownLabel="Sort Episodes"
             />
 
             {isSearching && (

@@ -46,6 +46,18 @@ const sortedByOldest = [...allVideos].sort((a, b) => {
   return dateA - dateB;
 });
 
+// Cache pre-sorted videos by viewCount descending (most viewed first)
+const sortedByMostViewed = [...allVideos].sort((a, b) => {
+  const viewsA = a.viewCount || 0;
+  const viewsB = b.viewCount || 0;
+  if (viewsB !== viewsA) {
+    return viewsB - viewsA;
+  }
+  const dateA = new Date(a.publishedAt || 0).getTime();
+  const dateB = new Date(b.publishedAt || 0).getTime();
+  return dateB - dateA;
+});
+
 export function getAllVideos(): VideoItem[] {
   return allVideos;
 }
@@ -59,7 +71,7 @@ export function getLatestVideos(count = 8): VideoItem[] {
 }
 
 export type SearchScope = 'all' | 'title' | 'author' | 'series';
-export type SortOrder = 'newest' | 'oldest';
+export type SortOrder = 'newest' | 'oldest' | 'mostViewed';
 
 export interface SearchResult {
   items: VideoItem[];
@@ -80,7 +92,12 @@ export function searchVideos(
   const trimmed = query.trim().toLowerCase();
   const limit = Math.min(Math.max(1, pageSize), 20);
 
-  const baseList = sort === 'oldest' ? sortedByOldest : sortedByLatest;
+  const baseList =
+    sort === 'oldest'
+      ? sortedByOldest
+      : sort === 'mostViewed'
+        ? sortedByMostViewed
+        : sortedByLatest;
   let filtered = baseList;
 
   if (trimmed) {
