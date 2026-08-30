@@ -481,7 +481,8 @@ export const AUTHOR_RULES = [
   {
     name: 'Sailajananda Mukhopadhyay',
     matches: [
-      'Sailajananda Mukhopadhyay'
+      'Sailajananda Mukhopadhyay',
+      'Shailajananda Mukhopadhyay'
     ]
   },
   {
@@ -853,13 +854,6 @@ export const AUTHOR_RULES = [
       'Indranil Sanyal'
     ]
   },
-  {
-    name: 'Sailajananda Mukhopadhyay',
-    matches: [
-      "Sailajananda Mukhopadhyay",
-      "Shailajananda Mukhopadhyay"
-    ]
-  }
 ];
 
 export function populateAuthors() {
