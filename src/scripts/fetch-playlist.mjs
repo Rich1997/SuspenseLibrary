@@ -136,8 +136,19 @@ function mergeVideo(fresh, existing) {
         merged[field] = fresh[field];
     }
     merged.sourcePlaylistIds = fresh.sourcePlaylistIds;
-    merged.tracked = true; // confirmed present in an actively tracked playlist
-    merged.removedFromPlaylist = false;
+
+    // Preserve user's manual flags:
+    // If tracked was explicitly set to false, keep it false.
+    merged.tracked = existing.tracked !== undefined ? existing.tracked : true;
+
+    // If video is untracked (tracked === false) or was explicitly marked as removedFromPlaylist: true,
+    // preserve the existing removedFromPlaylist flag instead of overwriting it to false.
+    if (existing.tracked === false || existing.removedFromPlaylist === true) {
+        merged.removedFromPlaylist = Boolean(existing.removedFromPlaylist);
+    } else {
+        merged.removedFromPlaylist = false;
+    }
+
     return merged;
 }
 

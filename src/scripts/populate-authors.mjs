@@ -40,7 +40,8 @@ export const AUTHOR_RULES = [
       'Satyajit Ray',
       'Satyajit Roy',
       'সত্যজিৎ রায়',
-      'Shonku'
+      'Shonku',
+      'Feluda'
     ]
   },
   {
@@ -271,7 +272,8 @@ export const AUTHOR_RULES = [
     name: 'Dipanwita Roy',
     matches: [
       'Dipanwita Roy',
-      'দীপান্বিতা রায়'
+      'দীপান্বিতা রায়',
+      'Diganta Deb'
     ]
   },
   {
@@ -854,6 +856,12 @@ export const AUTHOR_RULES = [
       'Indranil Sanyal'
     ]
   },
+  {
+    name: 'Aritri Chatterjee',
+    matches: [
+      'Aritri Chatterjee'
+    ]
+  }
 ];
 
 export function populateAuthors() {

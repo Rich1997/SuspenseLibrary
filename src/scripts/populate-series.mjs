@@ -233,6 +233,12 @@ export const SERIES_RULES = [
       'Sunday Nonsense',
       'SundayNonsense'
     ]
+  },
+  {
+    name: 'Eken Babu',
+    matches: [
+      'Eken Babu'
+    ]
   }
 ];
 

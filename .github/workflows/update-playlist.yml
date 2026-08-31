@@ -2,7 +2,7 @@ name: Update YouTube Playlist Data
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "30 18 * * 0" # Runs every Sunday at 18:30 UTC (Monday 00:00 IST)
   workflow_dispatch: {}    # manual trigger from the Actions tab
 
 permissions:
