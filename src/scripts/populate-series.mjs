@@ -239,6 +239,12 @@ export const SERIES_RULES = [
     matches: [
       'Eken Babu'
     ]
+  },
+  {
+    name: 'Daroga Priyonath',
+    matches: [
+      'Daroga Priyonath'
+    ]
   }
 ];
 

@@ -364,7 +364,7 @@ export const UnassignedPage: React.FC = () => {
 
                     <div className="flex flex-wrap items-center gap-2 text-[11px] pt-0.5">
                       {!hasAuthors && (
-                        <Badge variant="destructive" className="text-[10px] px-1.5 py-0">
+                        <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
                           No Author
                         </Badge>
                       )}

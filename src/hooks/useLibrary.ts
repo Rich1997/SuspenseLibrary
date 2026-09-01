@@ -1,4 +1,3 @@
-// src/hooks/useLibrary.ts
 import { useState, useEffect, useCallback } from 'react';
 import type { CustomList } from '@/lib/libraryStorage';
 import {

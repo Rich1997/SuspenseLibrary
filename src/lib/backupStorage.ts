@@ -1,4 +1,3 @@
-// src/lib/backupStorage.ts
 import { useState, useEffect } from 'react';
 import type { CustomList } from './libraryStorage';
 import { getFavorites, getWatchLater, getCustomLists, LIBRARY_CHANGE_EVENT } from './libraryStorage';

@@ -1,5 +1,3 @@
-// src/lib/libraryStorage.ts
-
 export interface CustomList {
   id: string;
   name: string;

@@ -39,8 +39,8 @@ export const EpisodeOverview: React.FC<EpisodeOverviewProps> = ({ video }) => {
       className={`group rounded-md bg-muted/60 p-4 transition-all duration-200 ${!isExpanded ? 'cursor-pointer hover:bg-muted/90' : ''
         }`}
     >
-      <div className="flex flex-wrap items-center gap-2.5 text-xs font-medium text-foreground mb-3 pb-2 border-b border-border/30">
-        <div className="flex items-center gap-3.5 flex-wrap">
+      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-foreground mb-3 pb-2 border-b border-border/30">
+        <div className="flex items-center gap-2 flex-wrap">
           {video.viewCount !== undefined && video.viewCount > 0 && (
             <CustomBadge
               className="font-semibold text-foreground/90"
