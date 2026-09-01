@@ -13,6 +13,7 @@ import { ListsPage } from '@/pages/ListsPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { AboutPage } from '@/pages/AboutPage';
+import { WhatsNewPage } from '@/pages/WhatsNewPage';
 import { UnassignedPage } from '@/pages/UnassignedPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ScrollArea } from './components/ui/scroll-area';
@@ -56,6 +57,7 @@ function AppContent() {
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/unassigned" element={<Navigate to="/unassigned/missing-authors" replace />} />
               <Route path="/unassigned/:tab" element={<UnassignedPage />} />
               <Route path="/:videoId" element={<EpisodePage />} />

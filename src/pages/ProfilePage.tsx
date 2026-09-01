@@ -7,6 +7,7 @@ import {
   FolderPlus,
   Settings,
   Info,
+  Sparkles,
   ChevronRight,
   Play,
 } from 'lucide-react';
@@ -15,6 +16,7 @@ import { useUserProfile } from '@/hooks/useUserProfile';
 import { useLibrary } from '@/hooks/useLibrary';
 import { getRecentlyPlayedVideos } from '@/lib/recentlyPlayed';
 import { useLastBackup } from '@/lib/backupStorage';
+import { LibraryUpdateInfo } from '@/components/LibraryUpdateInfo';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -58,7 +60,7 @@ export const ProfilePage: React.FC = () => {
   const avatarInitial = profileName.trim().charAt(0).toUpperCase() || 'G';
 
   return (
-    <div className="space-y-6 pb-20 max-w-2xl mx-auto w-full min-w-0">
+    <div className="space-y-6 max-w-2xl mx-auto w-full min-w-0">
       {/* YouTube Style Profile Header */}
       <div className="flex items-center gap-4 pt-2 px-1">
         <div className="size-16 rounded-full bg-primary/20 text-primary font-bold text-2xl flex items-center justify-center shrink-0 shadow-md">
@@ -246,6 +248,19 @@ export const ProfilePage: React.FC = () => {
           </Link>
 
           <Link
+            to="/whats-new"
+            className="flex items-center justify-between p-3.5 hover:bg-accent/40 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <div className="size-8 rounded-xl bg-muted text-muted-foreground flex items-center justify-center">
+                <Sparkles className="size-4" />
+              </div>
+              <span className="text-xs font-semibold text-foreground">What&apos;s New</span>
+            </div>
+            <ChevronRight className="size-4 text-muted-foreground" />
+          </Link>
+
+          <Link
             to="/about"
             className="flex items-center justify-between p-3.5 hover:bg-accent/40 transition-colors"
           >
@@ -259,6 +274,9 @@ export const ProfilePage: React.FC = () => {
           </Link>
         </div>
       </div>
+
+      {/* Library Update Info Footer */}
+      <LibraryUpdateInfo variant="block" className="pt-2 text-center" />
     </div>
   );
 };

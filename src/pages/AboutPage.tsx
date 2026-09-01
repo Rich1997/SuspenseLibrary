@@ -16,7 +16,7 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8 pb-12 max-w-5xl mx-auto">
+    <div className="space-y-8 pb-12 max-w-xl mx-auto">
       {/* Page Title */}
       <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
         About
@@ -142,7 +142,7 @@ export const AboutPage: React.FC = () => {
           Suspense Library is open source. Feel free to explore the repository, report bugs, suggest features, or reach out.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
           {SOCIAL_LINKS.map((link) => {
             const Icon = link.icon;
             return (

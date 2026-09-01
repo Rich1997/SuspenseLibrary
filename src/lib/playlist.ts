@@ -62,6 +62,14 @@ export function getAllVideos(): VideoItem[] {
   return allVideos;
 }
 
+export { playlistData };
+export {
+  getLibraryLastUpdated,
+  getFormattedLibraryLastUpdated,
+  getFormattedNextScheduledUpdate,
+  getNextScheduledUpdateDate,
+} from './updateSchedule';
+
 export function getVideoById(videoId: string): VideoItem | undefined {
   return videoIdMap.get(videoId);
 }

@@ -7,6 +7,7 @@ import {
   FolderPlus,
   Settings,
   Info,
+  Sparkles,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -19,6 +20,7 @@ import {
 import { useUserProfile } from '@/hooks/useUserProfile';
 import { useLibrary } from '@/hooks/useLibrary';
 import { useLastBackup } from '@/lib/backupStorage';
+import { LibraryUpdateInfo } from '@/components/LibraryUpdateInfo';
 
 export const UserProfileDropdown: React.FC = () => {
   const navigate = useNavigate();
@@ -52,8 +54,9 @@ export const UserProfileDropdown: React.FC = () => {
       ],
     },
     {
-      id: 'about',
+      id: 'info',
       items: [
+        { label: "What's New", icon: Sparkles, onClick: () => navigate('/whats-new') },
         { label: 'About', icon: Info, onClick: () => navigate('/about') },
       ],
     },
@@ -110,6 +113,10 @@ export const UserProfileDropdown: React.FC = () => {
             ))}
           </React.Fragment>
         ))}
+
+        {/* Library Update Info Footer */}
+        <DropdownMenuSeparator />
+        <LibraryUpdateInfo variant="compact" />
       </DropdownMenuContent>
     </DropdownMenu>
   );
