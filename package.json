@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node ./src/scripts/generate-sitemap.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
+    "generate:sitemap": "node ./src/scripts/generate-sitemap.mjs",
     "fetch:playlist": "node ./src/scripts/fetch-playlist.mjs",
     "import:playlist": "node src/scripts/import-playlist.mjs",
     "stats": "node ./src/scripts/playlist-stats.mjs",

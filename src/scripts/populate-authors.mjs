@@ -301,7 +301,9 @@ export const AUTHOR_RULES = [
     matches: [
       'Saikat Mukhopadhyay',
       'Saikat Mukhoapdhyay',
-      'সৈকত মুখোপাধ্যায়'
+      'সৈকত মুখোপাধ্যায়',
+      'Neel Chatterjee',
+      'সৈকত মুখোপাধ্যায়'
     ]
   },
   {

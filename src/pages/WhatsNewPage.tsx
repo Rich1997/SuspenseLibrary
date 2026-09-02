@@ -13,26 +13,26 @@ const CHANGELOG: ChangelogGroup[] = [
     items: [
       'What\'s New section to easily catch up on recent features and improvements.',
       'Library update indicator showing when new episodes were last synced.',
+      'Added sitemap and search engine indexing optimization.',
     ],
   },
   {
     date: 'September 1, 2026',
     items: [
-      'Sort by Most Popular added.',
-      'View and like count statistics shown on episode cards.'
+      'Library updates',
     ]
   },
   {
-    date: 'August 31, 2026 - Official Launch',
+    date: 'August 31, 2026',
     items: [
-      'Dedicated About page with project information.',
+      'Sort by Most Popular added.',
+      'View and like count statistics shown on episode cards.'
     ],
   },
   {
-    date: 'August 30, 2026',
+    date: 'August 30, 2026 - Official Launch',
     items: [
-      'Sunday Suspense episode catalogue and web player.',
-      'Search, stream, favorite, and save episodes to Watch Later.',
+      'Dedicated About page with project information.'
     ],
   },
   {
@@ -47,6 +47,8 @@ const CHANGELOG: ChangelogGroup[] = [
     items: [
       'Search filtering to search specifically by Title, Author, or Series.',
       'Custom Playlists with full backup and restore support.',
+      'Sunday Suspense episode catalogue and web player.',
+      'Search, stream, favorite, and save episodes to Watch Later.',
       'Author and Series pages to explore collections by your favorite authors or story series.',
       'Listening history to easily resume recently played stories.',
       'Sorting options to discover episodes by Newest or Oldest'
