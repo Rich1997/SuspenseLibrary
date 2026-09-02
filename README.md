@@ -1,7 +1,17 @@
-<div align="center">
-  <img src="src/assets/logo.png" alt="Suspense Library" width="260" />
-  <p>Open-source Sunday Suspense catalog</p>
-</div>
+<p align="center">
+  <a href="https://suspenselibrary.netlify.app/">
+    <picture>
+      <source srcset="src/assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+      <source srcset="src/assets/logo-light.png" media="(prefers-color-scheme: light)">
+      <img src="src/assets/logo-light.png" alt="Suspense Library logo" width="260">
+    </picture>
+  </a>
+</p>
+<p align="center">Open-source Sunday Suspense catalog</p>
+<p align="center">
+  <a href="https://app.netlify.com/projects/suspenselibrary/deploys"><img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/478007a8-8fe1-41cb-852a-b8b8ac4386dd/deploy-status" /></a>
+  <a href="https://github.com/Rich1997/SuspenseLibrary/actions/workflows/update-playlist.yml"><img alt="Playlist Sync Status" src="https://img.shields.io/github/actions/workflow/status/Rich1997/SuspenseLibrary/update-playlist.yml?style=flat-square" /></a>
+</p>
 
 ## About
 
