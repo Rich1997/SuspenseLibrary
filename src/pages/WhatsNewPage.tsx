@@ -9,6 +9,12 @@ interface ChangelogGroup {
 
 const CHANGELOG: ChangelogGroup[] = [
   {
+    date: 'September 6, 2026',
+    items: [
+      'Author and series names are now links across episode cards and details.',
+    ],
+  },
+  {
     date: 'September 2, 2026',
     items: [
       'What\'s New section to easily catch up on recent features and improvements.',
