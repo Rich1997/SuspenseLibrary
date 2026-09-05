@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Users, Search, X, BookOpen } from 'lucide-react';
 import { getAllAuthorsSorted, type AuthorInfo } from '@/lib/authorsAndSeries';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
@@ -19,7 +19,6 @@ const AUTHOR_SORT_OPTIONS: SortOption<SortOptionType>[] = [
 
 export const AuthorsPage = () => {
   useDocumentTitle('Authors');
-  const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLetter, setSelectedLetter] = useState<string>('ALL');
@@ -89,10 +88,6 @@ export const AuthorsPage = () => {
     });
     return map;
   }, [filteredAuthors, sortOption, searchQuery]);
-
-  const handleAuthorClick = (authorName: string) => {
-    navigate(`/episodes?q=${encodeURIComponent(authorName)}&scope=author`);
-  };
 
   return (
     <div className="space-y-6 pb-12">
@@ -188,17 +183,13 @@ export const AuthorsPage = () => {
                   <div className="size-8 rounded-lg bg-primary/10 text-primary font-bold text-base flex items-center justify-center shrink-0">
                     {letter}
                   </div>
-                  <span className="text-xs text-muted-foreground font-medium">
-                    {authors.length} {authors.length === 1 ? 'author' : 'authors'}
-                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {authors.map((author) => (
-                    <button
+                    <Link
                       key={author.name}
-                      type="button"
-                      onClick={() => handleAuthorClick(author.name)}
+                      to={`/episodes?q=${encodeURIComponent(author.name)}&scope=author`}
                       className="flex items-center justify-between p-3 rounded-xl border border-border/60 bg-card/60 hover:bg-accent/50 hover:border-primary/40 transition-all text-left group cursor-pointer shadow-xs hover:shadow-md"
                     >
                       <div className="min-w-0 flex-1 pr-2">
@@ -215,7 +206,7 @@ export const AuthorsPage = () => {
                       <Badge variant="outline" className="text-[10px] shrink-0 font-medium group-hover:border-primary/50">
                         {author.count}
                       </Badge>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </section>
@@ -225,10 +216,9 @@ export const AuthorsPage = () => {
           /* Flat Grid for filtered / custom sorted views */
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {filteredAuthors.map((author) => (
-              <button
+              <Link
                 key={author.name}
-                type="button"
-                onClick={() => handleAuthorClick(author.name)}
+                to={`/episodes?q=${encodeURIComponent(author.name)}&scope=author`}
                 className="flex items-center justify-between p-3 rounded-xl border border-border/60 bg-card/60 hover:bg-accent/50 hover:border-primary/40 transition-all text-left group cursor-pointer shadow-xs hover:shadow-md"
               >
                 <div className="min-w-0 flex-1 pr-2">
@@ -245,7 +235,7 @@ export const AuthorsPage = () => {
                 <Badge variant="outline" className="text-[10px] shrink-0 font-medium group-hover:border-primary/50">
                   {author.count}
                 </Badge>
-              </button>
+              </Link>
             ))}
           </div>
         )

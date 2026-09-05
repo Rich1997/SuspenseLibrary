@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { User } from 'lucide-react';
 import { getVideoById } from '@/lib/playlist';
 import { addRecentlyPlayedVideo } from '@/lib/recentlyPlayed';
@@ -11,7 +11,6 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 
 export const EpisodePage = () => {
   const { videoId } = useParams<{ videoId: string }>();
-  const navigate = useNavigate();
   const video = videoId ? getVideoById(videoId) : undefined;
 
   useDocumentTitle(video ? video.title : '404 - Page Not Found');
@@ -49,15 +48,15 @@ export const EpisodePage = () => {
                   </div>
                   <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5 font-medium text-foreground">
                     {video.authors.map((a, idx) => (
-                      <span
+                      <Link
                         key={idx}
-                        onClick={() => navigate(`/episodes?q=${encodeURIComponent(a.name)}&scope=author`)}
+                        to={`/episodes?q=${encodeURIComponent(a.name)}&scope=author`}
                         className="hover:text-primary hover:underline cursor-pointer"
                         title={a.name}
                       >
                         {a.name}
                         {idx < (video.authors?.length || 0) - 1 ? ',' : ''}
-                      </span>
+                      </Link>
                     ))}
                   </div>
                 </div>

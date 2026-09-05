@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Hash, ChevronUp, Eye, ThumbsUp, Calendar } from 'lucide-react';
 import type { VideoItem } from '@/types/playlist';
 import { CustomBadge } from './CustomBadge';
@@ -10,7 +9,6 @@ interface EpisodeOverviewProps {
 }
 
 export const EpisodeOverview: React.FC<EpisodeOverviewProps> = ({ video }) => {
-  const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
@@ -27,11 +25,6 @@ export const EpisodeOverview: React.FC<EpisodeOverviewProps> = ({ video }) => {
     : '';
 
   const series = video.series || [];
-
-  const handleSeriesClick = (e: React.MouseEvent, seriesName: string) => {
-    e.stopPropagation();
-    navigate(`/episodes?q=${encodeURIComponent(seriesName)}&scope=series`);
-  };
 
   return (
     <div
@@ -75,7 +68,7 @@ export const EpisodeOverview: React.FC<EpisodeOverviewProps> = ({ video }) => {
                 Icon={Hash}
                 variant="secondary"
                 gap={false}
-                onClick={(e) => handleSeriesClick(e, s)}
+                to={`/episodes?q=${encodeURIComponent(s)}&scope=series`}
               />
             ))}
           </div>

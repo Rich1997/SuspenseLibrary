@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
 
@@ -9,7 +10,8 @@ interface CustomBadgeProps {
     gap?: boolean;
     title?: string;
     interactive?: boolean;
-    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    to?: string;
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const CustomBadge = ({
@@ -20,26 +22,50 @@ export const CustomBadge = ({
     gap = true,
     title,
     interactive,
+    to,
     onClick,
 }: CustomBadgeProps) => {
-    const isInteractive = interactive ?? Boolean(onClick);
+    const isInteractive = interactive ?? (Boolean(onClick) || Boolean(to));
+
+    const badgeClasses = cn(
+        "flex items-center truncate text-xs transition-colors select-none",
+        gap && "gap-1",
+        isInteractive
+            ? variant === 'secondary'
+                ? "text-secondary hover:text-secondary/80 cursor-pointer"
+                : "text-muted-foreground hover:text-foreground cursor-pointer"
+            : variant === 'secondary'
+                ? "text-secondary cursor-default"
+                : "text-muted-foreground cursor-default",
+        className
+    );
+
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+        e.stopPropagation();
+        if (onClick) {
+            onClick(e);
+        }
+    };
+
+    if (to) {
+        return (
+            <Link
+                to={to}
+                className={badgeClasses}
+                title={title || value}
+                onClick={handleClick}
+            >
+                <Icon className="size-3 shrink-0" />
+                <span className="truncate">{value}</span>
+            </Link>
+        );
+    }
 
     return (
         <div
-            className={cn(
-                "flex items-center truncate text-xs transition-colors select-none",
-                gap && "gap-1",
-                isInteractive
-                    ? variant === 'secondary'
-                        ? "text-secondary hover:text-secondary/80 cursor-pointer"
-                        : "text-muted-foreground hover:text-foreground cursor-pointer"
-                    : variant === 'secondary'
-                        ? "text-secondary cursor-default"
-                        : "text-muted-foreground cursor-default",
-                className
-            )}
+            className={badgeClasses}
             title={title || value}
-            onClick={onClick}
+            onClick={handleClick}
         >
             <Icon className="size-3 shrink-0" />
             <span className="truncate">{value}</span>

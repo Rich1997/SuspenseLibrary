@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Calendar, User, Play, Hash, Trash2, Eye } from 'lucide-react';
 import type { VideoItem } from '@/types/playlist';
 import { Button } from '@/components/ui/button';
@@ -18,7 +18,6 @@ export const EpisodeCardHorizontal: React.FC<EpisodeCardHorizontalProps> = ({
   onRemove,
   removeTitle = 'Remove',
 }) => {
-  const navigate = useNavigate();
 
   const publishedDate = video.publishedAt
     ? new Date(video.publishedAt).toLocaleDateString('en-US', {
@@ -42,20 +41,6 @@ export const EpisodeCardHorizontal: React.FC<EpisodeCardHorizontalProps> = ({
         : null;
 
   const series = video.series && video.series.length > 0 ? video.series : null;
-
-  const handleAuthorClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (authorName) {
-      navigate(`/episodes?q=${encodeURIComponent(authorName)}&scope=author`);
-    }
-  };
-
-  const handleSeriesClick = (e: React.MouseEvent, seriesName: string) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigate(`/episodes?q=${encodeURIComponent(seriesName)}&scope=series`);
-  };
 
   const handleRemove = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -100,7 +85,7 @@ export const EpisodeCardHorizontal: React.FC<EpisodeCardHorizontalProps> = ({
                 className="font-semibold"
                 value={authorName}
                 Icon={User}
-                onClick={handleAuthorClick}
+                to={`/episodes?q=${encodeURIComponent(authorName)}&scope=author`}
               />
             )}
 
@@ -110,7 +95,7 @@ export const EpisodeCardHorizontal: React.FC<EpisodeCardHorizontalProps> = ({
                 value={s}
                 Icon={Hash}
                 gap={false}
-                onClick={(e) => handleSeriesClick(e, s)}
+                to={`/episodes?q=${encodeURIComponent(s)}&scope=series`}
               />
             ))}
           </div>

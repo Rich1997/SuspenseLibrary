@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Layers, Search, X, BookOpen } from 'lucide-react';
 import { getAllSeriesSorted, type SeriesInfo } from '@/lib/authorsAndSeries';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
@@ -19,7 +19,6 @@ const SERIES_SORT_OPTIONS: SortOption<SortOptionType>[] = [
 
 export const SeriesPage = () => {
   useDocumentTitle('Series');
-  const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLetter, setSelectedLetter] = useState<string>('ALL');
@@ -89,10 +88,6 @@ export const SeriesPage = () => {
     });
     return map;
   }, [filteredSeries, sortOption, searchQuery]);
-
-  const handleSeriesClick = (seriesName: string) => {
-    navigate(`/episodes?q=${encodeURIComponent(seriesName)}&scope=series`);
-  };
 
   return (
     <div className="space-y-6 pb-12">
@@ -188,17 +183,13 @@ export const SeriesPage = () => {
                   <div className="size-8 rounded-lg bg-primary/10 text-primary font-bold text-base flex items-center justify-center shrink-0">
                     {letter}
                   </div>
-                  <span className="text-xs text-muted-foreground font-medium">
-                    {seriesList.length} {seriesList.length === 1 ? 'series' : 'series'}
-                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {seriesList.map((series) => (
-                    <button
+                    <Link
                       key={series.name}
-                      type="button"
-                      onClick={() => handleSeriesClick(series.name)}
+                      to={`/episodes?q=${encodeURIComponent(series.name)}&scope=series`}
                       className="flex items-center justify-between p-3.5 rounded-xl border border-border/60 bg-card/60 hover:bg-accent/50 hover:border-primary/40 transition-all text-left group cursor-pointer shadow-xs hover:shadow-md"
                     >
                       <div className="min-w-0 flex-1 pr-2">
@@ -215,7 +206,7 @@ export const SeriesPage = () => {
                       <Badge variant="outline" className="text-[10px] shrink-0 font-medium group-hover:border-primary/50">
                         {series.count}
                       </Badge>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </section>
@@ -225,10 +216,9 @@ export const SeriesPage = () => {
           /* Flat Grid for filtered / custom sorted views */
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {filteredSeries.map((series) => (
-              <button
+              <Link
                 key={series.name}
-                type="button"
-                onClick={() => handleSeriesClick(series.name)}
+                to={`/episodes?q=${encodeURIComponent(series.name)}&scope=series`}
                 className="flex items-center justify-between p-3.5 rounded-xl border border-border/60 bg-card/60 hover:bg-accent/50 hover:border-primary/40 transition-all text-left group cursor-pointer shadow-xs hover:shadow-md"
               >
                 <div className="min-w-0 flex-1 pr-2">
@@ -245,7 +235,7 @@ export const SeriesPage = () => {
                 <Badge variant="outline" className="text-[10px] shrink-0 font-medium group-hover:border-primary/50">
                   {series.count}
                 </Badge>
-              </button>
+              </Link>
             ))}
           </div>
         )

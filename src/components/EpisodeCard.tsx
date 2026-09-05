@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Calendar, User, Play, Hash, Eye } from 'lucide-react';
 import type { VideoItem } from '@/types/playlist';
 import { LibraryActions } from '@/components/LibraryActions';
@@ -11,8 +11,6 @@ interface EpisodeCardProps {
 }
 
 export const EpisodeCard: React.FC<EpisodeCardProps> = ({ video, showViewsLabel = true }) => {
-  const navigate = useNavigate();
-
   const publishedDate = video.publishedAt
     ? new Date(video.publishedAt).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -35,20 +33,6 @@ export const EpisodeCard: React.FC<EpisodeCardProps> = ({ video, showViewsLabel 
         : null;
 
   const series = video.series && video.series?.length > 0 ? video.series : null;
-
-  const handleAuthorClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (authorName) {
-      navigate(`/episodes?q=${encodeURIComponent(authorName)}&scope=author`);
-    }
-  };
-
-  const handleSeriesClick = (e: React.MouseEvent, seriesName: string) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigate(`/episodes?q=${encodeURIComponent(seriesName)}&scope=series`);
-  };
 
   return (
     <div className="group relative flex flex-col overflow-hidden bg-background border-none rounded-md shadow-none hover:bg-foreground/10 cursor-pointer -m-3 p-3">
@@ -81,7 +65,7 @@ export const EpisodeCard: React.FC<EpisodeCardProps> = ({ video, showViewsLabel 
           className="pb-2 max-w-fit font-semibold"
           value={authorName}
           Icon={User}
-          onClick={handleAuthorClick}
+          to={`/episodes?q=${encodeURIComponent(authorName)}&scope=author`}
         />
       )}
 
@@ -93,7 +77,7 @@ export const EpisodeCard: React.FC<EpisodeCardProps> = ({ video, showViewsLabel 
               value={s}
               Icon={Hash}
               gap={false}
-              onClick={(e) => handleSeriesClick(e, s)}
+              to={`/episodes?q=${encodeURIComponent(s)}&scope=series`}
             />
           ))}
         </div>
