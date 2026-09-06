@@ -863,6 +863,12 @@ export const AUTHOR_RULES = [
     matches: [
       'Aritri Chatterjee'
     ]
+  },
+  {
+    name: 'Madhabi Bhattacharya',
+    matches: [
+      'Madhabi Bhattacharya'
+    ]
   }
 ];
 
