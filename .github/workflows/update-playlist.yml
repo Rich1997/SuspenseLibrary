@@ -32,6 +32,12 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
+      - name: Populate authors
+        run: npm run populate:authors
+
+      - name: Populate series
+        run: npm run populate:series
+
       - name: Generate sitemap
         run: npm run generate:sitemap
 
