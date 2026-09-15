@@ -15283,8 +15283,15 @@
       ],
       "viewCount": 0,
       "likeCount": 0,
-      "authors": [],
-      "series": [],
+      "authors": [
+        {
+          "role": "author",
+          "name": "Saikat Mukhopadhyay"
+        }
+      ],
+      "series": [
+        "Best of"
+      ],
       "originalDate": "",
       "externalLinks": [],
       "tracked": true,
@@ -16184,8 +16191,16 @@
       ],
       "viewCount": 0,
       "likeCount": 0,
-      "authors": [],
-      "series": [],
+      "authors": [
+        {
+          "role": "author",
+          "name": "Syed Mustafa Siraj"
+        }
+      ],
+      "series": [
+        "Colonel",
+        "Best of"
+      ],
       "originalDate": "",
       "externalLinks": [],
       "tracked": true,
@@ -16300,8 +16315,16 @@
       ],
       "viewCount": 0,
       "likeCount": 0,
-      "authors": [],
-      "series": [],
+      "authors": [
+        {
+          "role": "author",
+          "name": "Sharadindu Bandyopadhyay"
+        }
+      ],
+      "series": [
+        "Byomkesh Bakshi",
+        "Best of"
+      ],
       "originalDate": "",
       "externalLinks": [],
       "tracked": true,
@@ -16832,8 +16855,22 @@
       ],
       "viewCount": 0,
       "likeCount": 0,
-      "authors": [],
-      "series": [],
+      "authors": [
+        {
+          "role": "author",
+          "name": "Satyajit Ray"
+        },
+        {
+          "role": "author",
+          "name": "Arthur Conan Doyle"
+        }
+      ],
+      "series": [
+        "Taranath Tantrik",
+        "Feluda",
+        "Sherlock Holmes",
+        "Best of"
+      ],
       "originalDate": "",
       "externalLinks": [],
       "tracked": true,
@@ -16919,8 +16956,27 @@
       ],
       "viewCount": 0,
       "likeCount": 0,
-      "authors": [],
-      "series": [],
+      "authors": [
+        {
+          "role": "author",
+          "name": "Satyajit Ray"
+        },
+        {
+          "role": "author",
+          "name": "Taradas Bandyopadhyay"
+        },
+        {
+          "role": "author",
+          "name": "Arthur Conan Doyle"
+        }
+      ],
+      "series": [
+        "Sunday Suspense Originals",
+        "Best of",
+        "Feluda",
+        "Taranath Tantrik",
+        "Sherlock Holmes"
+      ],
       "originalDate": "",
       "externalLinks": [],
       "tracked": true,
@@ -17013,8 +17069,15 @@
       ],
       "viewCount": 0,
       "likeCount": 0,
-      "authors": [],
-      "series": [],
+      "authors": [
+        {
+          "role": "author",
+          "name": "Adrish Bardhan"
+        }
+      ],
+      "series": [
+        "Best of"
+      ],
       "originalDate": "",
       "externalLinks": [],
       "tracked": true,

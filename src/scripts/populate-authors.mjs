@@ -31,7 +31,8 @@ export const AUTHOR_RULES = [
       'শরদিন্দু বন্দ্যোপাধ্যায়',
       'শরদিন্দু বন্দ্যোপাধ্যায়',
       'ব্যোমকেশ',
-      'Baroda'
+      'Baroda',
+      'Byomkesh'
     ]
   },
   {
