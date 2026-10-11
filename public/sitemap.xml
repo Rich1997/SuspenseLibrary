@@ -2,39 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://suspenselibrary.netlify.app/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/episodes</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/authors</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/series</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/whats-new</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/about</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://suspenselibrary.netlify.app/wMIemuK83aw</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://suspenselibrary.netlify.app/QzljLisxPLE</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/G9xXyk0YsmM</loc>
@@ -1225,6 +1237,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://suspenselibrary.netlify.app/_GT0HbBlpbA</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://suspenselibrary.netlify.app/nBBwO-SNezw</loc>
     <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -2035,18 +2053,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://suspenselibrary.netlify.app/TUiMGkDliGM</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/7qGbcLpSN9g</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://suspenselibrary.netlify.app/Z4lv6PCgtIU</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -2072,18 +2078,6 @@
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/1qjJf_F9B9k</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/qbZc9dopfPY</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/BQasmPFIK44</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2917,49 +2911,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://suspenselibrary.netlify.app/AFS58a2xxTo</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/DLGk_L5upeU</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/8uYGg3_nsiY</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://suspenselibrary.netlify.app/AK_CkooSJ08</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://suspenselibrary.netlify.app/46qdauSMxrc</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/p--FRGz4c04</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://suspenselibrary.netlify.app/3McP3UM8vds</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/fLqfPNk1FUg</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3697,12 +3655,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://suspenselibrary.netlify.app/jyjC9W0TgKo</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://suspenselibrary.netlify.app/e0gU2F4YIaM</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -3751,43 +3703,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://suspenselibrary.netlify.app/BvRjBc1FCPY</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://suspenselibrary.netlify.app/nC7Py1CzaY4</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/Gvz4I0Dad9E</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/U2YzlVY6uB8</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/KcbGyIQabXk</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/w3qOgdoqu_E</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/Ezk0xxtQ4VI</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3811,19 +3727,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://suspenselibrary.netlify.app/8bvM4Yj849E</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://suspenselibrary.netlify.app/daTjnmMr9IM</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/uHuq0IOQgiI</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
