@@ -2,39 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://suspenselibrary.netlify.app/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/episodes</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/authors</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/series</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/whats-new</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/about</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://suspenselibrary.netlify.app/-KrtPMolVFs</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://suspenselibrary.netlify.app/mZoTL8mk-PQ</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/OpHNmU5df48</loc>
@@ -3230,12 +3242,6 @@
   </url>
   <url>
     <loc>https://suspenselibrary.netlify.app/UEqmu1ElSf8</loc>
-    <lastmod>2024-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suspenselibrary.netlify.app/vioCzkUnVxU</loc>
     <lastmod>2024-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
