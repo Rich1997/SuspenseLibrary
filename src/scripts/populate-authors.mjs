@@ -229,7 +229,8 @@ export const AUTHOR_RULES = [
     matches: [
       'Himadri Kishore Dasgupta',
       'হিমাদ্রি কিশোর দাশগুপ্ত',
-      'হিমাদ্রিকিশোর দাশগুপ্ত'
+      'হিমাদ্রিকিশোর দাশগুপ্ত',
+      'Himadrikishore Dasgupta'
     ]
   },
   {
@@ -274,7 +275,8 @@ export const AUTHOR_RULES = [
     matches: [
       'Dipanwita Roy',
       'দীপান্বিতা রায়',
-      'Diganta Deb'
+      'Diganta Deb',
+      'Dipanwita Ray'
     ]
   },
   {
@@ -870,6 +872,41 @@ export const AUTHOR_RULES = [
     matches: [
       'Madhabi Bhattacharya'
     ]
+  },
+  {
+    name:'Aniruddha Sau',
+    matches:[
+      'Aniruddha Sau'
+    ]
+  },
+  {
+    name:'Sekhar Basu',
+    matches:[
+      'Sekhar Basu',
+      'Shekhar Basu'
+    ],
+    exclude:[
+      'Rajshekhar Basu',
+      'Rajeshekhar Basu'
+    ]
+  },
+  {
+    name: 'Jules Verne',
+    matches: [
+      'Jules Verne'
+    ]
+  },
+  {
+    name: 'Gouranga Prasad Basu',
+    matches: [
+      'Gouranga Prasad Basu'
+    ]
+  },
+  {
+    name: 'Amrita Koner',
+    matches: [
+      'Amrita Koner'
+    ]
   }
 ];
 
@@ -914,7 +951,11 @@ export function populateAuthors() {
         title.toLowerCase().includes(pattern.toLowerCase())
       );
 
-      if (matchedTitlePattern) {
+      const isExcluded = rule.exclude?.some((exPattern) =>
+        title.toLowerCase().includes(exPattern.toLowerCase())
+      );
+
+      if (matchedTitlePattern && !isExcluded) {
         currentAuthors.push({
           role: 'author',
           name: rule.name,
