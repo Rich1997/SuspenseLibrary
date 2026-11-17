@@ -32,6 +32,18 @@ const allVideos: VideoItem[] = Array.from(videoMap.values());
 // Map for O(1) video lookup by videoId
 const videoIdMap = videoMap;
 
+// Pre-computed sets of exact series and author names (lowercased) for exact-match filtering
+const knownSeriesNames = new Set<string>();
+const knownAuthorNames = new Set<string>();
+allVideos.forEach((v) => {
+  (v.series || []).forEach((s) => {
+    if (s) knownSeriesNames.add(s.toLowerCase().trim());
+  });
+  (v.authors || []).forEach((a) => {
+    if (a?.name) knownAuthorNames.add(a.name.toLowerCase().trim());
+  });
+});
+
 // Cache pre-sorted videos by publishedAt descending
 const sortedByLatest = [...allVideos].sort((a, b) => {
   const dateA = new Date(a.publishedAt || 0).getTime();
@@ -109,13 +121,21 @@ export function searchVideos(
   let filtered = baseList;
 
   if (trimmed) {
+    const normalizedSeriesQuery = trimmed.startsWith('#')
+      ? trimmed.slice(1).trim()
+      : trimmed;
+    const isExactSeries =
+      scope === 'series' && knownSeriesNames.has(normalizedSeriesQuery);
+    const isExactAuthor = scope === 'author' && knownAuthorNames.has(trimmed);
+
     filtered = baseList.filter((v) => {
       const matchTitle = () => v.title.toLowerCase().includes(trimmed);
       const matchDescription = () => (v.description || '').toLowerCase().includes(trimmed);
       const matchAuthor = () => {
-        const hasAuthorNameMatch = v.authors?.some((a) =>
-          a.name.toLowerCase().includes(trimmed)
-        );
+        const hasAuthorNameMatch = v.authors?.some((a) => {
+          const name = a.name.toLowerCase().trim();
+          return isExactAuthor ? name === trimmed : name.includes(trimmed);
+        });
         if (hasAuthorNameMatch) return true;
         if (trimmed === 'various') {
           const primaryAuthorCount = (v.authors || []).filter(
@@ -125,8 +145,15 @@ export function searchVideos(
         }
         return false;
       };
-      const matchSeries = () =>
-        v.series?.some((s) => s.toLowerCase().includes(trimmed));
+      const matchSeries = () => {
+        if (!normalizedSeriesQuery) return false;
+        return v.series?.some((s) => {
+          const name = s.toLowerCase().trim();
+          return isExactSeries
+            ? name === normalizedSeriesQuery
+            : name.includes(normalizedSeriesQuery);
+        });
+      };
       switch (scope) {
         case 'title':
           return matchTitle();

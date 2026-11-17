@@ -73,9 +73,9 @@ export const AuthorsPage = () => {
     return sorted;
   }, [allAuthors, searchQuery, selectedLetter, sortOption]);
 
-  // Group authors by initial letter if sorting by name-asc and not filtering by query
+  // Group authors by initial letter if sorting alphabetically and not filtering by query
   const groupedAuthors = useMemo(() => {
-    if (sortOption !== 'name-asc' || searchQuery.trim()) {
+    if (sortOption === 'count-desc' || searchQuery.trim()) {
       return null;
     }
     const map = new Map<string, AuthorInfo[]>();

@@ -1,6 +1,6 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from "fs"
 
-const DATA_FILE = 'src/data/playlist.json';
+const DATA_FILE = "src/data/playlist.json"
 
 /**
  * Series rules mapping canonical series names
@@ -8,316 +8,222 @@ const DATA_FILE = 'src/data/playlist.json';
  */
 export const SERIES_RULES = [
   {
-    name: 'Sunday Suspense Classics',
-    matches: [
-      'Sunday Suspense Classics'
-    ]
+    name: "SundaySuspenseClassics",
+    matches: ["Sunday Suspense Classics"],
   },
   {
-    name: 'Sunday Suspense Originals',
-    matches: [
-      'Sunday Suspense Originals'
-    ]
+    name: "SundaySuspenseOriginals",
+    matches: ["Sunday Suspense Originals"],
   },
   {
-    name: 'New Taranath Tantrik',
-    matches: [
-      'New Taranath Tantrik'
-    ]
+    name: "NewTaranathTantrik",
+    matches: ["New Taranath Tantrik", "Trinankur Banerjee"],
   },
   {
-    name: 'Taranath Tantrik',
-    matches: [
-      'Taranath Tantrik',
-      'Taranath',
-      'তারানাথ তান্ত্রিক',
-      'তারানাথ',
-    ],
-    exclude: [
-      'New Taranath Tantrik',
-    ],
+    name: "TaranathTantrik",
+    matches: ["Taranath Tantrik", "Taranath", "তারানাথ তান্ত্রিক", "তারানাথ"],
+    exclude: ["New Taranath Tantrik", "Trinankur Banerjee"],
   },
   {
-    name: 'Feluda',
-    matches: [
-      'Feluda',
-      'ফেলুদা',
-      'Prodosh Chandra Mitter',
-      'Pradosh C Mitter',
-    ],
+    name: "Feluda",
+    matches: ["Feluda", "ফেলুদা", "Prodosh Chandra Mitter", "Pradosh C Mitter"],
   },
   {
-    name: 'Byomkesh Bakshi',
+    name: "ByomkeshBakshi",
+    matches: ["Byomkesh Bakshi", "Byomkesh", "ব্যোমকেশ বক্সী", "ব্যোমকেশ"],
+  },
+  {
+    name: "Baroda",
+    matches: ["Baroda"],
+  },
+  {
+    name: "ProfessorShonku",
     matches: [
-      'Byomkesh Bakshi',
-      'Byomkesh',
-      'ব্যোমকেশ বক্সী',
-      'ব্যোমকেশ',
+      "Professor Shonku",
+      "Prof Shonku",
+      "Professor Sonku",
+      "Sonku",
+      "প্রফেসর শঙ্কু",
+      "শঙ্কু",
+      "Shonku",
     ],
   },
   {
-    name: 'Baroda',
-    matches: [
-      'Baroda'
-    ]
+    name: "Kakababu",
+    matches: ["Kakababu", "কাকাবাবু", "Raja Roy Chowdhury"],
   },
   {
-    name: 'Professor Shonku',
+    name: "TariniKhuro",
     matches: [
-      'Professor Shonku',
-      'Prof Shonku',
-      'Professor Sonku',
-      'Sonku',
-      'প্রফেসর শঙ্কু',
-      'শঙ্কু',
-      'Shonku'
-    ]
-  },
-  {
-    name: 'Kakababu',
-    matches: [
-      'Kakababu',
-      'কাকাবাবু',
-      'Raja Roy Chowdhury',
+      "Tarini Khuro",
+      "তারিণী খুড়ো",
+      "তারিণী খুরো",
+      "তারিণীখুড়ো",
+      "Tarinikhuro",
     ],
   },
   {
-    name: 'Tarini Khuro',
-    matches: [
-      'Tarini Khuro',
-      'তারিণী খুড়ো',
-      'তারিণী খুরো',
-      'তারিণীখুড়ো',
-      'Tarinikhuro'
-    ]
+    name: "SherlockHolmes",
+    matches: ["Sherlock Holmes", "Sherlock", "শার্লক হোমস", "শার্লক"],
   },
   {
-    name: 'Sherlock Holmes',
-    matches: [
-      'Sherlock Holmes',
-      'Sherlock',
-      'শার্লক হোমস',
-      'শার্লক'
-    ]
+    name: "KiritiRoy",
+    matches: ["Kiriti Roy", "Kiriti", "কিরীটি রায়", "কিরীটি"],
   },
   {
-    name: 'Kiriti Roy',
-    matches: [
-      'Kiriti Roy',
-      'Kiriti',
-      'কিরীটি রায়',
-      'কিরীটি'
-    ]
+    name: "GoyendaShabor",
+    matches: ["Goyenda Shabor", "Shabor Dasgupta", "গোয়েন্দা শবর", "শবর"],
   },
   {
-    name: 'Goyenda Shabor',
-    matches: [
-      'Goyenda Shabor',
-      'Shabor Dasgupta',
-      'গোয়েন্দা শবর',
-      'শবর'
-    ]
+    name: "Ghanada",
+    matches: ["Ghanada", "ঘনাদা"],
   },
   {
-    name: 'Ghanada',
-    matches: [
-      'Ghanada',
-      'ঘনাদা'
-    ]
+    name: "Tenida",
+    matches: ["Tenida", "টেনিদা"],
   },
   {
-    name: 'Tenida',
-    matches: [
-      'Tenida',
-      'টেনিদা'
-    ]
+    name: "HerculePoirot",
+    matches: ["Hercule Poirot", "Poirot", "পোয়ারো"],
   },
   {
-    name: 'Hercule Poirot',
-    matches: [
-      'Hercule Poirot',
-      'Poirot',
-      'পোয়ারো'
-    ]
+    name: "MitinMashi",
+    matches: ["Mitin Mashi", "মিটিন মাসি"],
   },
   {
-    name: 'Col. Niladri Sarkar',
-    matches: [
-      'Colonel Niladri Sarkar',
-      'Col Niladri Sarkar',
-      'Niladri Sarkar',
-      'কলোনেল নীলাদ্রি সরকার'
-    ]
+    name: "ProkhorRudra",
+    matches: ["Prokhor Rudra", "প্রখর রুদ্র"],
   },
   {
-    name: 'Mitin Mashi',
-    matches: [
-      'Mitin Mashi',
-      'মিটিন মাসি'
-    ]
+    name: "NeelChatterjee",
+    matches: ["Neel Chatterjee"],
   },
   {
-    name: 'Prokhor Rudra',
-    matches: [
-      'Prokhor Rudra',
-      'প্রখর রুদ্র',
-    ]
+    name: "শরদিন্দুবন্দ্যোপাধ্যায়ঐতিহাসিক",
+    matches: ["শরদিন্দু বন্দ্যোপাধ্যায় ঐতিহাসিক"],
   },
   {
-    name: 'Neel Chatterjee',
-    matches: [
-      'Neel Chatterjee'
-    ]
+    name: "JadukarSatyacharan",
+    matches: ["Jadukar Satyacharan", "জাদুকর সত্যচরণ"],
   },
   {
-    name: 'শরদিন্দু বন্দ্যোপাধ্যায় ঐতিহাসিক',
-    matches: [
-      'শরদিন্দু বন্দ্যোপাধ্যায় ঐতিহাসিক'
-    ]
+    name: "GoyendapeethLalbazar",
+    matches: ["Goyendapeeth Lalbazar"],
   },
   {
-    name: 'Jadukar Satyacharan',
+    name: "Colonel",
     matches: [
-      'Jadukar Satyacharan',
-      'জাদুকর সত্যচরণ'
-    ]
+      "Colonel",
+      "Colonel Niladri Sarkar",
+      "Col Niladri Sarkar",
+      "Niladri Sarkar",
+      "কলোনেল নীলাদ্রি সরকার",
+    ],
   },
   {
-    name: 'Goyendapeeth Lalbazar',
-    matches: [
-      'Goyendapeeth Lalbazar'
-    ]
+    name: "FatherBrown",
+    matches: ["Father Brown"],
   },
   {
-    name: 'Colonel',
-    matches: [
-      'Colonel'
-    ]
+    name: "BestOf",
+    matches: ["Best"],
   },
   {
-    name: 'Father Brown',
-    matches: [
-      'Father Brown'
-    ]
+    name: "DigantaDeb",
+    matches: ["Diganta Deb", "দিগন্ত দেব"],
   },
   {
-    name: 'Best of',
-    matches: [
-      'Best'
-    ]
+    name: "BenHur",
+    matches: ["Ben-Hur", "Ben Hur"],
   },
   {
-    name: 'Diganta Deb',
-    matches: [
-      'Diganta Deb',
-      'দিগন্ত দেব'
-    ]
+    name: "Chanakya",
+    matches: ["Chanakya", "চাণক্য সিরিজ"],
   },
   {
-    name: 'Ben-Hur',
-    matches: [
-      'Ben-Hur',
-      'Ben Hur'
-    ]
+    name: "SundayNonsense",
+    matches: ["Sunday Nonsense", "SundayNonsense"],
   },
   {
-    name: 'Chanakya',
-    matches: [
-      'Chanakya',
-      'চাণক্য সিরিজ'
-    ]
+    name: "EkenBabu",
+    matches: ["Eken Babu"],
   },
   {
-    name: 'Sunday Nonsense',
-    matches: [
-      'Sunday Nonsense',
-      'SundayNonsense'
-    ]
+    name: "DarogaPriyonath",
+    matches: ["Daroga Priyonath"],
   },
-  {
-    name: 'Eken Babu',
-    matches: [
-      'Eken Babu'
-    ]
-  },
-  {
-    name: 'Daroga Priyonath',
-    matches: [
-      'Daroga Priyonath'
-    ]
-  }
-];
+]
 
 export function populateSeries() {
-  const raw = readFileSync(DATA_FILE, 'utf-8');
-  const data = JSON.parse(raw);
+  const raw = readFileSync(DATA_FILE, "utf-8")
+  const data = JSON.parse(raw)
 
-  let updatedVideoCount = 0;
-  let totalSeriesAdded = 0;
-  let correctedSpellingCount = 0;
+  let updatedVideoCount = 0
+  let totalSeriesAdded = 0
+  let correctedSpellingCount = 0
 
   data.videos = data.videos.map((video) => {
-    const title = video.title || '';
-    let videoModified = false;
-    let currentSeries = Array.isArray(video.series) ? video.series : [];
+    const title = video.title || ""
+    let videoModified = false
+    let currentSeries = Array.isArray(video.series) ? video.series : []
 
     // 1. Correct any existing misspelled or alias series names in metadata
     currentSeries = currentSeries.map((seriesName) => {
       for (const rule of SERIES_RULES) {
         const matchFound = rule.matches.some(
           (m) => m.toLowerCase() === seriesName.toLowerCase()
-        );
+        )
         if (matchFound && seriesName !== rule.name) {
-          correctedSpellingCount++;
-          videoModified = true;
-          return rule.name;
+          correctedSpellingCount++
+          videoModified = true
+          return rule.name
         }
       }
-      return seriesName;
-    });
+      return seriesName
+    })
 
     // Deduplicate existing series names
     const existingSeriesSet = new Set(
       currentSeries.map((s) => s.toLowerCase().trim())
-    );
+    )
 
     // 2. Check title against series rules to populate missing series tags
     for (const rule of SERIES_RULES) {
       if (existingSeriesSet.has(rule.name.toLowerCase())) {
-        continue; // Already has this canonical series
+        continue // Already has this canonical series
       }
 
       const matchedTitlePattern = rule.matches.some((pattern) =>
         title.toLowerCase().includes(pattern.toLowerCase())
-      );
+      )
 
       const isExcluded = rule.exclude?.some((exPattern) =>
         title.toLowerCase().includes(exPattern.toLowerCase())
-      );
+      )
 
       if (matchedTitlePattern && !isExcluded) {
-        currentSeries.push(rule.name);
-        existingSeriesSet.add(rule.name.toLowerCase());
-        videoModified = true;
-        totalSeriesAdded++;
+        currentSeries.push(rule.name)
+        existingSeriesSet.add(rule.name.toLowerCase())
+        videoModified = true
+        totalSeriesAdded++
       }
     }
 
     if (videoModified) {
-      updatedVideoCount++;
-      video.series = currentSeries;
+      updatedVideoCount++
+      video.series = currentSeries
     }
 
-    return video;
-  });
+    return video
+  })
 
-  writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+  writeFileSync(DATA_FILE, JSON.stringify(data, null, 2))
 
-  console.log(`\n--- Series Auto-Population Results ---`);
-  console.log(`Videos updated: ${updatedVideoCount}`);
-  console.log(`New series tags added: ${totalSeriesAdded}`);
-  console.log(`Existing series spellings corrected: ${correctedSpellingCount}`);
-  console.log(`------------------------------------\n`);
+  console.log(`\n--- Series Auto-Population Results ---`)
+  console.log(`Videos updated: ${updatedVideoCount}`)
+  console.log(`New series tags added: ${totalSeriesAdded}`)
+  console.log(`Existing series spellings corrected: ${correctedSpellingCount}`)
+  console.log(`------------------------------------\n`)
 }
 
-populateSeries();
+populateSeries()

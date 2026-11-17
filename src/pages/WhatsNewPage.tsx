@@ -1,81 +1,83 @@
-import React from 'react';
-import { useDocumentTitle } from '@/hooks/useDocumentTitle';
-import { LibraryUpdateInfo } from '@/components/LibraryUpdateInfo';
+import React from "react"
+import { useDocumentTitle } from "@/hooks/useDocumentTitle"
+import { LibraryUpdateInfo } from "@/components/LibraryUpdateInfo"
 
 interface ChangelogGroup {
-  date: string;
-  items: string[];
+  date: string
+  items: string[]
 }
 
 const CHANGELOG: ChangelogGroup[] = [
   {
-    date: 'September 6, 2026',
+    date: "November 18, 2026",
     items: [
-      'Author and series names are now links across episode cards and details.',
+      "Series names are now maintained without spaces (e.g., #ByomkeshBakshi, #ProfessorShonku).",
     ],
   },
   {
-    date: 'September 2, 2026',
+    date: "September 6, 2026",
     items: [
-      'What\'s New section to easily catch up on recent features and improvements.',
-      'Library update indicator showing when new episodes were last synced.',
-      'Added sitemap and search engine indexing optimization.',
+      "Author and series names are now links across episode cards and details.",
     ],
   },
   {
-    date: 'September 1, 2026',
+    date: "September 2, 2026",
     items: [
-      'Library updates',
-    ]
-  },
-  {
-    date: 'August 31, 2026',
-    items: [
-      'Sort by Most Popular added.',
-      'View and like count statistics shown on episode cards.'
+      "What's New section to easily catch up on recent features and improvements.",
+      "Library update indicator showing when new episodes were last synced.",
+      "Added sitemap and search engine indexing optimization.",
     ],
   },
   {
-    date: 'August 30, 2026 - Official Launch',
+    date: "September 1, 2026",
+    items: ["Library updates"],
+  },
+  {
+    date: "August 31, 2026",
     items: [
-      'Dedicated About page with project information.'
+      "Sort by Most Popular added.",
+      "View and like count statistics shown on episode cards.",
     ],
   },
   {
-    date: 'August 29, 2026',
-    items: [
-      'Smoother navigation across desktop and mobile devices.',
-      'Added missing episodes.',
-    ]
+    date: "August 30, 2026 - Official Launch",
+    items: ["Dedicated About page with project information."],
   },
   {
-    date: 'Earlier',
+    date: "August 29, 2026",
     items: [
-      'Search filtering to search specifically by Title, Author, or Series.',
-      'Custom Playlists with full backup and restore support.',
-      'Sunday Suspense episode catalogue and web player.',
-      'Search, stream, favorite, and save episodes to Watch Later.',
-      'Author and Series pages to explore collections by your favorite authors or story series.',
-      'Listening history to easily resume recently played stories.',
-      'Sorting options to discover episodes by Newest or Oldest'
-    ]
-  }
-];
+      "Smoother navigation across desktop and mobile devices.",
+      "Added missing episodes.",
+    ],
+  },
+  {
+    date: "Earlier",
+    items: [
+      "Search filtering to search specifically by Title, Author, or Series.",
+      "Custom Playlists with full backup and restore support.",
+      "Sunday Suspense episode catalogue and web player.",
+      "Search, stream, favorite, and save episodes to Watch Later.",
+      "Author and Series pages to explore collections by your favorite authors or story series.",
+      "Listening history to easily resume recently played stories.",
+      "Sorting options to discover episodes by Newest or Oldest",
+    ],
+  },
+]
 
 export const WhatsNewPage: React.FC = () => {
-  useDocumentTitle('What\'s New');
+  useDocumentTitle("What's New")
 
   return (
-    <div className="space-y-8 pb-16 max-w-xl mx-auto">
+    <div className="mx-auto max-w-xl space-y-8 pb-16">
       {/* Page Header */}
       <div className="space-y-2">
-        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+        <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           What&apos;s New
         </h1>
-        <p className="text-sm sm:text-base text-muted-foreground">
+        <p className="text-sm text-muted-foreground sm:text-base">
           Feature updates and recent additions to Suspense Library.
         </p>
-        <LibraryUpdateInfo variant='block' />
+        <LibraryUpdateInfo variant="block" />
       </div>
 
       <hr className="border-border" />
@@ -84,11 +86,11 @@ export const WhatsNewPage: React.FC = () => {
       <div className="space-y-8">
         {CHANGELOG.map((group, index) => (
           <section key={group.date || index} className="space-y-3">
-            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground border-b pb-2">
+            <h2 className="border-b pb-2 text-lg font-bold tracking-tight text-foreground sm:text-xl">
               {group.date}
             </h2>
 
-            <ul className="space-y-2 text-sm sm:text-base leading-relaxed text-muted-foreground">
+            <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
               {group.items.map((item, itemIdx) => (
                 <li key={itemIdx} className="flex items-start gap-2">
                   <span className="font-semibold select-none">–</span>
@@ -100,7 +102,7 @@ export const WhatsNewPage: React.FC = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WhatsNewPage;
+export default WhatsNewPage
